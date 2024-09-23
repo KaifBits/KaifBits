@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const UserList = () => {
-  const[user,setUser]=useState([]);
+  const[user,setUser]=useState(null);
   const[point,setPoint]=useState(0);
   const[msg,setMsg]=useState("");
 
@@ -41,7 +41,7 @@ getuser();
 
 <h1 class="text-5xl font-mono">LeaderBoard <i class="ri-bar-chart-grouped-line"></i>  </h1>
 <h1 className='text-xl font-semibold text-red-400'>{msg}</h1>
-{ user.map((val,key)=>{
+{user? user.map((val,key)=>{
   return(
   <div class="flex space-x-10  text-amber-600 outline  outline-pink-500 p-3 rounded-md"  >
     <div>
@@ -75,10 +75,10 @@ getuser();
 
 
   </div>
-  );
+  ) 
 }
 
-)
+): <>loading...</>
 }
 
 
